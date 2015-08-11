@@ -1,0 +1,2 @@
+module LazyImages
+end
