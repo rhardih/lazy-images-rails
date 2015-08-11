@@ -5,7 +5,7 @@ require "lazy_images/rails/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "lazy_images"
+  s.name        = "lazy_images-rails"
   s.version     = LazyImages::Rails::VERSION
   s.authors     = ["René Hansen"]
   s.email       = ["renehh@gmail.com"]
