@@ -1,0 +1,19 @@
+.rli-wrapper {
+  position: relative;
+
+  .rli-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .rli-placeholder {
+    background: #ccc;
+    display: block;
+
+    .moon, .mountain {
+      fill: #ddd;
+    }
+  }
+}
+

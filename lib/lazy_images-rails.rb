@@ -1,2 +1,1 @@
-module LazyImages
-end
+require 'lazy_images/rails/engine'
