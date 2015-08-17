@@ -26,7 +26,7 @@ yourDomReadyFunction(function() {
 
 ## Styling the placeholder
 
-The placeholder image is a simple graphic of a mountain and a moon. Both have been supplied with targetable classes for individual styling. Create a custom rule with these classes, e.g.:
+The default [placeholder image](https://github.com/rhardih/lazy-images-rails/blob/master/app/assets/images/placeholder.svg) is a simple graphic of a mountain and a moon. Both have been supplied with targetable classes for individual styling. Create a custom rule with these classes, e.g.:
 
 ```css
   .rli-placeholder {
@@ -39,6 +39,18 @@ The placeholder image is a simple graphic of a mountain and a moon. Both have be
 ```
 
 And the constituent paths in the the svg image will be styled accordingly.
+
+## Using custom svg as placeholder
+
+The placeholder is stored as a string value in `LazyImages::Rails.placeholder`, so in order to overwrite the default, create an initializer and set it accordingly, e.g. `config/initializers/lazy_images-rails.rb`:
+
+```ruby
+custom_placeholder = File.read("#{Rails.root}/app/assets/images/custom.svg")
+LazyImages::Rails.placeholder = custom_placeholder
+```
+
+Here assuming you have placed your custom placeholder in `app/assets/images/custom.svg`.
+
 
 ## Testing
 
