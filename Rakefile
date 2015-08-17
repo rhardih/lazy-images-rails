@@ -1,3 +1,5 @@
+require 'bump/tasks'
+
 begin
   require 'bundler/setup'
 rescue LoadError
