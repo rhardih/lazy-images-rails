@@ -1,7 +1,17 @@
 class @LazyImagesRails
   @init: (all_replaced) ->
     replace_with_image = (placeholder) =>
-      img = new Image()
+      svg = placeholder.querySelector('svg')
+
+      width = svg.attributes.width
+      height = svg.attributes.height
+      img = null
+
+      if width? && height?
+        img = new Image(parseInt(width.value, 10), parseInt(height.value, 10))
+      else
+        img = new Image()
+
       img.onload = =>
         placeholder.parentNode.replaceChild(img, placeholder)
         if all_replaced? && --@placeholder_count == 0
