@@ -6,8 +6,14 @@ class LazyImagesTest < ActionView::TestCase
   end
 
   test "image_tag outputs wrapped image with placeholder and noscript" do
-    expected = File.read(File.expand_path("../fixtures/_image_tag_output.html", __FILE__))
+    expected = fixture("_image_tag_output.html")
 
     assert_dom_equal(expected, image_tag('foo.png'))
+  end
+
+  private
+
+  def fixture(name)
+    File.read(File.expand_path("../fixtures/#{name}", __FILE__)).chop!
   end
 end
