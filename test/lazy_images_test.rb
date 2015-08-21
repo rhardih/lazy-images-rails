@@ -11,6 +11,12 @@ class LazyImagesTest < ActionView::TestCase
     assert_dom_equal(expected, image_tag('foo.png'))
   end
 
+  test 'image_tag adds dimensions to placeholder and noscript as well' do
+    expected = fixture("_image_tag_output_with_size.html")
+
+    assert_dom_equal(expected, image_tag('foo.png', size: '123x456'))
+  end
+
   private
 
   def fixture(name)
