@@ -115,7 +115,7 @@ lazy-images-rails uses teaspoon for testing the clientside javascript:
 cd test/dummy && rake teaspoon
 ```
 
-Alternatively it can run directly in the browser, by starting the dummy app and visiting the test harness page [http://localhost:3000/teaspoon](http://localhost:3000/teaspoon):
+Alternatively it can run directly in the browser, by starting the dummy app and visiting the test harness page [http://localhost:3000](http://localhost:3000):
 
 ```bash
 cd test/dummy && bin/rails s
