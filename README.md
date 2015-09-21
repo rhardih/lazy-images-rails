@@ -12,21 +12,11 @@ This problem can be solved in many ways, but the solution provided by this plugi
 
 ### How?
 
-Instead of rendering a bare `<img />` tag, the Rails [`image_tag`](http://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-image_tag) helper renders an SVG placeholder with the relevant data for the image instead. This placeholder takes up the same space as it's constituent image.
-
-Once the DOM is ready, the page is scanned for placeholders and each one is then replaced by it's image.
-
-In case of non-js browsers, a noscript fallback is provided with the placeholder.
+Instead of rendering a bare `<img />` tag, the Rails [`image_tag`](http://api.rubyonrails.org/classes/ActionView/Helpers/AssetTagHelper.html#method-i-image_tag) helper renders an SVG placeholder behind the image while it is loading. This placeholder takes up the same space as it's constituent image.
 
 ## Usage
 
-Include the supplied assets in the respective manifests, `application.js`:
-
-```javascript
-//= require lazy_images_rails
-```
-
-And `application.css`
+Include the supplied css asset in the manifest, `application.css`:
 
 ```css
 *= require lazy_images_rails
@@ -36,14 +26,6 @@ Add an image in a view, `index.html.erb`:
 
 ```erb
 <%= image_tag 'foo.png' %>
-```
-
-And then trigger the lazy-load by initializing the client side of things on DOM loaded, e.g.:
-
-```javascript
-yourDomReadyFunction(function() {
-  LazyImagesRails.init();
-});
 ```
 
 In case an image needs to be inserted without a placeholder, since the `image_tag` helper has been aliased, accessing the unmodified helper is done with the suffix:
@@ -73,7 +55,7 @@ So setting this attribute will affect the placeholder as well and set width and 
 
 The default [placeholder image](https://github.com/rhardih/lazy-images-rails/blob/master/app/assets/images/placeholder.svg) is a simple graphic of a mountain and a moon. Both have been supplied with targetable classes for individual styling. Create a custom rule with these classes, e.g. (scss):
 
-```css
+```scss
 .rli-wrapper {
   .rli-placeholder {
     background: #fff;
@@ -105,20 +87,6 @@ Here assuming you have placed your custom placeholder in `app/assets/images/cust
 
 ```bash
 rake test
-```
-
-### Clientside tests
-
-lazy-images-rails uses teaspoon for testing the clientside javascript:
-
-```bash
-cd test/dummy && rake teaspoon
-```
-
-Alternatively it can run directly in the browser, by starting the dummy app and visiting the test harness page [http://localhost:3000](http://localhost:3000):
-
-```bash
-cd test/dummy && bin/rails s
 ```
 
 ## License

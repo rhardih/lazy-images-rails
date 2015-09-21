@@ -14,6 +14,4 @@ gemspec
 
 group :development, :test do
   gem 'byebug'
-  gem 'teaspoon-jasmine'
-  gem 'coffee-rails'
 end

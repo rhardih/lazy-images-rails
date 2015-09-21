@@ -10,11 +10,10 @@ Gem::Specification.new do |s|
   s.authors     = ["René Hansen"]
   s.email       = ["renehh@gmail.com"]
   s.homepage    = "https://github.com/rhardih/lazy-images-rails"
-  s.summary     = "Lazy loaded images with placeholders and noscript fallback"
+  s.summary     = "Simple placeholders for images"
   s.description = "lazy-images-rails is a rails plugin that augments the " \
-    "standard image_tag helper to provide instant placeholder images while " \
-    "the actual image is being lazy loaded. A noscript fallback is provided " \
-    "along with the placeholder for non-js browsers."
+    "standard image_tag helper to provide instant placeholders while the" \
+    "actual image is still being fetched."
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE"]
