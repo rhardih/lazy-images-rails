@@ -8,13 +8,16 @@ class @LazyImagesRails
       tmp = document.createElement('div')
       tmp.innerHTML = content # will trigger download of image
       img = tmp.querySelector('img')
+
+      done = --@placeholder_count == 0 && all_replaced? &&
+        typeof all_replaced == 'function'
+
       # Race condition:
       # Event attachment happens after the download triggers above.
       # If image loads before getting here, the callback never runs.
       img.onload = =>
         placeholder.parentNode.replaceChild(img, placeholder)
-        if all_replaced? && --@placeholder_count == 0
-          all_replaced.call()
+        all_replaced.call() if done
 
     placeholders = document.querySelectorAll('div[data-rli-placeholder]')
     @placeholder_count = placeholders.length
