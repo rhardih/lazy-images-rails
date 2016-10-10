@@ -21,7 +21,8 @@ module LazyImages
 
         content_tag(:div, class: 'rli-wrapper') do
           placeholder.to_s.html_safe +
-            image_tag_without_lazy_images(source, options)
+            (options[:placeholder_only] ? '' : \
+             image_tag_without_lazy_images(source, options))
         end
       end
     end
